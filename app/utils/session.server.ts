@@ -71,6 +71,7 @@ export async function requireUserId(
   }
   return userId
 }
+
 export async function createUserSession(userId: string, redirectTo: string) {
   const session = await storage.getSession()
   session.set('userId', userId)
