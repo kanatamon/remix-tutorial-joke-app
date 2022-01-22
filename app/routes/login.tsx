@@ -1,5 +1,6 @@
 import {
   ActionFunction,
+  Form,
   json,
   LinksFunction,
   MetaFunction,
@@ -121,7 +122,7 @@ export default function Login() {
     <div className="container">
       <div className="content" data-light="">
         <h1>Login</h1>
-        <form
+        <Form
           method="post"
           aria-describedby={
             actionData?.formError ? 'form-error-message' : undefined
@@ -212,7 +213,7 @@ export default function Login() {
           <button type="submit" className="button">
             Submit
           </button>
-        </form>
+        </Form>
       </div>
       <div className="links">
         <ul>
