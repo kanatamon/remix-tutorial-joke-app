@@ -52,6 +52,7 @@ function Document({
         <Meta />
         <title>{title}</title>
         <Links />
+        {typeof document === 'undefined' ? '__STYLES__' : null}
       </head>
       <body>
         {children}
