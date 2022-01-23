@@ -3,6 +3,7 @@ import { Link, useLoaderData, useCatch, useParams, redirect, Form } from 'remix'
 import type { Joke } from '@prisma/client'
 import { db } from '~/utils/db.server'
 import { requireUserId } from '~/utils/session.server'
+import { JokeView } from '~/components/joke'
 
 type LoaderData = { joke: Joke }
 
@@ -57,19 +58,7 @@ export const action: ActionFunction = async ({ request, params }) => {
 export default function JokeRoute() {
   const data = useLoaderData<LoaderData>()
 
-  return (
-    <div>
-      <p>Here's your hilarious joke:</p>
-      <p>{data.joke.content}</p>
-      <Link to=".">{data.joke.name} Permalink</Link>
-      <Form method="post">
-        <input type="hidden" name="_method" value="delete" />
-        <button type="submit" className="button">
-          Delete
-        </button>
-      </Form>
-    </div>
-  )
+  return <JokeView joke={data.joke} />
 }
 
 export function CatchBoundary() {
